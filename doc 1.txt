@@ -1,0 +1,134 @@
+ create database department;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| department         |
+| employee           |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use department;
+Database changed
+mysql> create table department(departmentnumber varchar(4),departmentname varchar(15),departmenthead varchar(4));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc deparment;
+ERROR 1146 (42S02): Table 'department.deparment' doesn't exist
+mysql> desc department;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| departmentnumber | varchar(4)  | YES  |     | NULL    |       |
+| departmentname   | varchar(15) | YES  |     | NULL    |       |
+| departmenthead   | varchar(4)  | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> create database course;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| employee           |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use course;
+Database changed
+mysql> create table course(coursenumber varchar(3),coursedesc varchar(14),coursetype char(1),semnumber char(1),hallnumber varchar(1),facno varchar(4));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc course;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| coursenumber | varchar(3)  | YES  |     | NULL    |       |
+| coursedesc   | varchar(14) | YES  |     | NULL    |       |
+| coursetype   | char(1)     | YES  |     | NULL    |       |
+| semnumber    | char(1)     | YES  |     | NULL    |       |
+| hallnumber   | varchar(1)  | YES  |     | NULL    |       |
+| facno        | varchar(4)  | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> create database faculty;
+ERROR 1007 (HY000): Can't create database 'faculty'; database exists
+mysql> use database faculty;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use faculty;
+Database changed
+mysql> desc faculty;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| facultyno   | varchar(4)  | YES  |     | NULL    |       |
+| facultyname | varchar(15) | YES  |     | NULL    |       |
+| gender      | char(1)     | YES  |     | NULL    |       |
+| dateofbirth | date        | YES  |     | NULL    |       |
+| dateofjoin  | date        | YES  |     | NULL    |       |
+| mobileno    | int(10)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table faculty add deptno varchar(4);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| facultyno   | varchar(4)  | YES  |     | NULL    |       |
+| facultyname | varchar(15) | YES  |     | NULL    |       |
+| gender      | char(1)     | YES  |     | NULL    |       |
+| dateofbirth | date        | YES  |     | NULL    |       |
+| dateofjoin  | date        | YES  |     | NULL    |       |
+| mobileno    | int(10)     | YES  |     | NULL    |       |
+| deptno      | varchar(4)  | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> desc student;
+ERROR 1146 (42S02): Table 'student.student' doesn't exist
+mysql> use student.st;
+ERROR 1049 (42000): Unknown database 'student.st'
+mysql> use student;
+Database changed
+mysql> create table student(regno number(3),name varchar(15),gender char(1),dob date,mobileno number(10),city varchar(15));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number(3),name varchar(15),gender char(1),dob date,mobileno number(10),city varc' at line 1
+mysql> create table student(regno int(3),name varchar(15),gender char(1),dob date,mobileno int(10),city varchar(15));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc student;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| regno    | int(3)      | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| mobileno | int(10)     | YES  |     | NULL    |       |
+| city     | varchar(15) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
