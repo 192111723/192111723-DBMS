@@ -1,0 +1,34 @@
+mysql> create table hospital(p_no int(8),p_name varchar(20),admitted_date date,discharge date date);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'date)' at line 1
+mysql> create table hospital(p_no int(8),p_name varchar(20),admitted_date date,discharge_date date);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc hospital;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| p_no           | int(8)      | YES  |     | NULL    |       |
+| p_name         | varchar(20) | YES  |     | NULL    |       |
+| admitted_date  | date        | YES  |     | NULL    |       |
+| discharge_date | date        | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into hospital values('8','rasheed','26.06.22','30.06.22');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into hospital values('10','mohanth','26.08.12','10.09.12');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into hospital values('20','hemanth','16.07.02','22.07.02');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from hospital;
++------+---------+---------------+----------------+
+| p_no | p_name  | admitted_date | discharge_date |
++------+---------+---------------+----------------+
+|    8 | rasheed | 2026-06-22    | 2030-06-22     |
+|   10 | mohanth | 2026-08-12    | 2010-09-12     |
+|   20 | hemanth | 2016-07-02    | 2022-07-02     |
++------+---------+---------------+----------------+
+3 rows in set (0.02 sec)
