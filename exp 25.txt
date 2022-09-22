@@ -1,0 +1,46 @@
+mysql> create database studentprogress;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use studentprogress;
+Database changed
+mysql> desc studentprogress;
+ERROR 1146 (42S02): Table 'studentprogress.studentprogress' doesn't exist
+mysql> create table studentprogress(studentno int(10),studentname varchar(20),subject varchar(40),marks int(25);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table studentprogress(studentno int(10),studentname varchar(20),subject varchar(40),marks int(25));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc studentprogress;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| studentno   | int(10)     | YES  |     | NULL    |       |
+| studentname | varchar(20) | YES  |     | NULL    |       |
+| subject     | varchar(40) | YES  |     | NULL    |       |
+| marks       | int(25)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> insert into studentprogress values('23','manoj','maths','50');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into studentprogress values('12','rasheed','physics','90');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into studentprogress values('18','hemanth','chemistry','75');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from student progress;
+ERROR 1146 (42S02): Table 'studentprogress.student' doesn't exist
+mysql> select*from studentprogress;
++-----------+-------------+-----------+-------+
+| studentno | studentname | subject   | marks |
++-----------+-------------+-----------+-------+
+|        23 | manoj       | maths     |    50 |
+|        12 | rasheed     | physics   |    90 |
+|        18 | hemanth     | chemistry |    75 |
++-----------+-------------+-----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select*from studentprogress;
+
