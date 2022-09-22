@@ -1,0 +1,56 @@
+ create database bookcompany;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bookcompany        |
+| course             |
+| department         |
+| employee           |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> use bookcompany;
+Database changed
+mysql> create table bookcompany(bookno int(2),authorname varchar(4),bookname varchar(8),publisheddate date));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> create table bookcompany(bookno int(2),authorname varchar(4),bookname varchar(8),publisheddate date);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc bookcompany;
++---------------+------------+------+-----+---------+-------+
+| Field         | Type       | Null | Key | Default | Extra |
++---------------+------------+------+-----+---------+-------+
+| bookno        | int(2)     | YES  |     | NULL    |       |
+| authorname    | varchar(4) | YES  |     | NULL    |       |
+| bookname      | varchar(8) | YES  |     | NULL    |       |
+| publisheddate | date       | YES  |     | NULL    |       |
++---------------+------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert*bookcompany values('2','rasheed','dbms','06.09.07');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*bookcompany values('2','rasheed','dbms','06.09.07')' at line 1
+mysql> insert into bookcompany values('2','rasheed','dbms','06.09.07');
+ERROR 1406 (22001): Data too long for column 'authorname' at row 1
+mysql> insert into bookcompany values('2','devi','dbms','06.09.07');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into bookcompany values('3','anvi','marvel','09.08.17');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from bookcompany;
++--------+------------+----------+---------------+
+| bookno | authorname | bookname | publisheddate |
++--------+------------+----------+---------------+
+|      2 | devi       | dbms     | 2006-09-07    |
+|      3 | anvi       | marvel   | 2009-08-17    |
++--------+------------+----------+---------------+
+2 rows in set (0.00 sec)
